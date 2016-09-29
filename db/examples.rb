@@ -16,3 +16,32 @@
 #                password: 'abc123',
 #                password_confirmation: nil)
 # end
+Recipe.create([
+                { name: 'Chili', time: 30 },
+                { name: 'Mashed Potatoes', time: 20 },
+                { name: 'Baby Back Ribs', time: 45 },
+                { name: 'Lasagna', time: 60 }
+              ])
+
+Ingredient.create([
+                    { name: 'ground beef',
+                      units: 5 },
+                    { name: 'cheese',
+                      units: 5 },
+                    { name: 'barbecue sauce',
+                      units: 6 },
+                    { name: 'pasta',
+                      units: 3 },
+                    { name: 'potatoes',
+                      units: 2 }
+                  ])
+
+Recipeingredient.create([
+                          { quantity: 10, recipe_id: 1, ingredient_id: 1 },
+                          { quantity: 15, recipe_id: 4, ingredient_id: 1 },
+                          { quantity: 15, recipe_id: 4, ingredient_id: 4 },
+                          { quantity: 100, recipe_id: 2, ingredient_id: 5 },
+                          { quantity: 50, recipe_id: 3, ingredient_id: 3 },
+                          { quantity: 20, recipe_id: 4, ingredient_id: 2 },
+                          { quantity: 25, recipe_id: 2, ingredient_id: 2 }
+                        ])
