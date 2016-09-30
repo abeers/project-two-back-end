@@ -25,15 +25,15 @@ Recipe.create([
 
 Ingredient.create([
                     { name: 'ground beef',
-                      units: 5 },
+                      units: 'oz' },
                     { name: 'cheese',
-                      units: 5 },
+                      units: 'cups' },
                     { name: 'barbecue sauce',
-                      units: 6 },
+                      units: 'tbsp' },
                     { name: 'pasta',
-                      units: 3 },
+                      units: 'oz' },
                     { name: 'potatoes',
-                      units: 2 }
+                      units: 'lbs' }
                   ])
 
 Recipeingredient.create([
