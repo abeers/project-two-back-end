@@ -1,4 +1,4 @@
-class RecipesController < ApplicationController
+class RecipesController < ProtectedController
   before_action :set_recipe, only: [:show, :update, :destroy]
 
   # GET /recipes
@@ -19,7 +19,6 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
-
     if @recipe.save
       render json: @recipe, status: :created, location: @recipe
     else
@@ -52,6 +51,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :time)
+    params.require(:recipe).permit(:name, :time, :user_id)
   end
 end

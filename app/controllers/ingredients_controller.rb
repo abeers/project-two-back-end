@@ -1,4 +1,4 @@
-class IngredientsController < ApplicationController
+class IngredientsController < ProtectedController
   before_action :set_ingredient, only: [:show, :update, :destroy]
 
   # GET /ingredients
