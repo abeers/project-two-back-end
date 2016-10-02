@@ -45,3 +45,29 @@ Recipeingredient.create([
                           { quantity: 20, recipe_id: 4, ingredient_id: 2 },
                           { quantity: 25, recipe_id: 2, ingredient_id: 2 }
                         ])
+
+Instruction.create([
+                     { step: 'Brown ground beef. Season with salt and pepper.',
+                       recipe_id: 1 },
+                     { step: 'Drain fat from beef.',
+                       recipe_id: 1 },
+                     { step: 'Add beans, chili powder, and tomato sauce',
+                       recipe_id: 1 },
+                     { step: 'Simmer on medium heat for 30 minutes.',
+                       recipe_id: 1 },
+                     { step: 'Brown ground beef. Season with salt and pepper.',
+                       recipe_id: 4 },
+                     { step: 'Drain fat from beef.',
+                       recipe_id: 4 },
+                     { step: 'Add tomato sauce.',
+                       recipe_id: 4 },
+                     { step: 'Boil pasta.',
+                       recipe_id: 4 },
+                     { step: 'In a rectangular pan, layer sauce, pasta, and
+                              cheese for four layers.',
+                       recipe_id: 4 },
+                     { step: 'Bake for 30 minutes at 350 degrees.',
+                       recipe_id: 4 },
+                     { step: 'Cut into squares and serve.',
+                       recipe_id: 4 }
+                   ])
