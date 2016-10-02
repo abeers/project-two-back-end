@@ -1,5 +1,6 @@
 class RecipesController < ProtectedController
-  before_action :set_recipe, only: [:show, :update, :destroy]
+  before_action :set_recipe, only: [:show]
+  before_action :set_user_recipe, only: [:update, :destroy]
 
   # GET /recipes
   # GET /recipes.json
@@ -18,7 +19,7 @@ class RecipesController < ProtectedController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
     if @recipe.save
       render json: @recipe, status: :created, location: @recipe
     else
@@ -48,6 +49,10 @@ class RecipesController < ProtectedController
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
+  end
+
+  def set_user_recipe
+    @recipe = current_user.recipes.find(params[:id])
   end
 
   def recipe_params
