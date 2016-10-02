@@ -10,6 +10,11 @@ class RecipesController < ProtectedController
     render json: @recipes
   end
 
+  def search
+    @recipes = Recipe.where(search_params)
+    render json: @recipes
+  end
+
   # GET /recipes/1
   # GET /recipes/1.json
   def show
@@ -55,7 +60,11 @@ class RecipesController < ProtectedController
     @recipe = current_user.recipes.find(params[:id])
   end
 
+  def search_params
+    params.require(:recipe).permit(:name)
+  end
+
   def recipe_params
-    params.require(:recipe).permit(:name, :time, :user_id)
+    params.require(:recipe).permit(:name, :time)
   end
 end
