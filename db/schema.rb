@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160929144748) do
+ActiveRecord::Schema.define(version: 20161002010753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,10 @@ ActiveRecord::Schema.define(version: 20160929144748) do
     t.integer  "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -64,4 +67,5 @@ ActiveRecord::Schema.define(version: 20160929144748) do
   add_foreign_key "examples", "users"
   add_foreign_key "recipeingredients", "ingredients"
   add_foreign_key "recipeingredients", "recipes"
+  add_foreign_key "recipes", "users"
 end
