@@ -9,6 +9,11 @@ class IngredientsController < ProtectedController
     render json: @ingredients
   end
 
+  def search
+    @ingredients = Ingredient.find_by search_params
+    render json: @ingredients
+  end
+
   # GET /ingredients/1
   # GET /ingredients/1.json
   def show
@@ -49,6 +54,10 @@ class IngredientsController < ProtectedController
 
   def set_ingredient
     @ingredient = Ingredient.find(params[:id])
+  end
+
+  def search_params
+    params.require(:ingredient).permit(:name)
   end
 
   def ingredient_params

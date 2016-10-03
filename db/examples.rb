@@ -16,11 +16,23 @@
 #                password: 'abc123',
 #                password_confirmation: nil)
 # end
+User.create([
+              { email: 'alex@beers.com',
+                password: 'alex',
+                password_confirmation: 'alex' },
+              { email: 'amanda@green.com',
+                password: 'amanda',
+                password_confirmation: 'amanda' },
+              { email: 'orlando@cat.com',
+                password: 'meow',
+                password_confirmation: 'meow' }
+            ])
+
 Recipe.create([
-                { name: 'Chili', time: 30 },
-                { name: 'Mashed Potatoes', time: 20 },
-                { name: 'Baby Back Ribs', time: 45 },
-                { name: 'Lasagna', time: 60 }
+                { name: 'Chili', time: 30, user_id: 1 },
+                { name: 'Mashed Potatoes', time: 20, user_id: 2 },
+                { name: 'Baby Back Ribs', time: 45, user_id: 3 },
+                { name: 'Lasagna', time: 60, user_id: 3 }
               ])
 
 Ingredient.create([

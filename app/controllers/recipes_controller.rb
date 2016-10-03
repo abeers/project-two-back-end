@@ -6,7 +6,11 @@ class RecipesController < ProtectedController
   # GET /recipes.json
   def index
     @recipes = Recipe.all
+    render json: @recipes
+  end
 
+  def myrecipes
+    @recipes = Recipe.where("user_id = #{current_user.id}")
     render json: @recipes
   end
 
