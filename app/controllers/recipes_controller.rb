@@ -10,7 +10,7 @@ class RecipesController < ProtectedController
   end
 
   def myrecipes
-    @recipes = Recipe.where("user_id = #{current_user.id}")
+    @recipes = current_user.recipes
     render json: @recipes
   end
 
