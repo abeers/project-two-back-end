@@ -52,6 +52,6 @@ class InstructionsController < ApplicationController
   end
 
   def instruction_params
-    params.require(:instruction).permit(:step, :recipe_id)
+    params.require(:instruction).permit(:step, :recipe_id, :stepnum)
   end
 end
