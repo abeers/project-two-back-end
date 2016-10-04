@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get '/recipe' => 'recipes#search'
   get '/ingredient' => 'ingredients#search'
   get '/userrecipe' => 'recipes#myrecipes'
+  get '/randomrecipe' => 'recipes#random'
 end

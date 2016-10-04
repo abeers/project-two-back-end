@@ -19,6 +19,11 @@ class RecipesController < ProtectedController
     render json: @recipes
   end
 
+  def random
+    @recipe = Recipe.limit(1).order('RANDOM()')
+    render json: @recipe
+  end
+
   # GET /recipes/1
   # GET /recipes/1.json
   def show
