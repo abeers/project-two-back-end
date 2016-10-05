@@ -9,9 +9,19 @@ class IngredientsController < ProtectedController
     render json: @ingredients
   end
 
-  def search
+  def search_for_recipe
     @ingredients = Ingredient.find_by search_params
-    render json: @ingredients
+    @recipes = @ingredients.recipes
+    render json: @recipes
+  end
+
+  def find_or_create
+    @ingredient = Ingredient.find_by search_params
+    if @ingredient.nil?
+      @ingredient = Ingredient.new(ingredient_params)
+      @ingredient.save
+    end
+    render json: @ingredient
   end
 
   # GET /ingredients/1

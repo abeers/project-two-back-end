@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   patch '/change-password/:id' => 'users#changepw'
   resources :users, only: [:index, :show]
   get '/recipe' => 'recipes#search'
-  get '/ingredient' => 'ingredients#search'
+  get '/ingredient' => 'ingredients#find_or_create'
+  get '/byingredient' => 'ingredients#search_for_recipe'
   get '/userrecipe' => 'recipes#myrecipes'
   get '/randomrecipe' => 'recipes#random'
 end
