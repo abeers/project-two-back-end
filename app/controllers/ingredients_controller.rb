@@ -24,6 +24,12 @@ class IngredientsController < ProtectedController
     render json: @ingredient
   end
 
+  def random
+    @ingredient = Ingredient.find_by search_params
+    @recipe = @ingredient.recipes.limit(1).order('RANDOM()')
+    render json: @recipe
+  end
+
   # GET /ingredients/1
   # GET /ingredients/1.json
   def show
